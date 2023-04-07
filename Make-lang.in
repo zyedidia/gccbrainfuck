@@ -17,15 +17,15 @@ bf1$(exeext): $(BRAINFUCK_OBJS) attribs.o $(BACKEND) $(LIBDEPS)
 	+$(CXX) $(ALL_CXXFLAGS) $(LDFLAGS) -o $@ \
 	      $(BRAINFUCK_OBJS) attribs.o $(BACKEND) $(LIBS) $(BACKENDLIBS)
 
-brainfuck/tfspec.o: $(srcdir)/brainfuck/tfspec.c $(SYSTEM_H) coretypes.h $(TM_H) $(GCC_H) \
+brainfuck/bfspec.o: $(srcdir)/brainfuck/bfspec.cc $(SYSTEM_H) coretypes.h $(TM_H) $(GCC_H) \
     $(CONFIG_H) opts.h
 	(SHLIB='$(SHLIB)'; \
 	$(COMPILER) -c $(ALL_COMPILERFLAGS) $(ALL_CPPFLAGS) $(DRIVER_DEFINES) \
-		$(INCLUDES) $(srcdir)/brainfuck/tfspec.c)
+		$(INCLUDES) $(srcdir)/brainfuck/bfspec.cc)
 
-brainfuck/tfspec.o: $(srcdir)/brainfuck/tfspec.c $(SYSTEM_H) coretypes.h $(TM_H) $(GCC_H) $(CONFIG_H) $(TREE_H)
+brainfuck/bfspec.o: $(srcdir)/brainfuck/bfspec.cc $(SYSTEM_H) coretypes.h $(TM_H) $(GCC_H) $(CONFIG_H) $(TREE_H)
 
-brainfuck/brainfuck-lang.o: brainfuck/brainfuck-lang.c $(GO_SYSTEM_H) coretypes.h opts.h $(TREE_H) \
+brainfuck/brainfuck-lang.o: brainfuck/brainfuck-lang.cc $(GO_SYSTEM_H) coretypes.h opts.h $(TREE_H) \
 	$(GIMPLE_H) $(GGC_H) toplev.h debug.h options.h $(FLAGS_H) convert.h \
 	langhooks.h langhooks-def.h $(TARGET_H) $(DIAGNOSTIC_H) $(GO_C_H) \
 	gt-brainfuck-brainfuck-lang.h gtype-brainfuck.h
@@ -52,7 +52,7 @@ brainfuck.srcman:
 brainfuck.install-plugin:
 
 brainfuck.tags: force
-	cd $(srcdir)/brainfuck; etags -o TAGS.sub *.c *.h; \
+	cd $(srcdir)/brainfuck; etags -o TAGS.sub *.cc *.h; \
 	etags --include TAGS.sub --include ../TAGS.sub
 
 lang_checks += check-brainfuck

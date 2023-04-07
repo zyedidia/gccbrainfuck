@@ -4,6 +4,6 @@ compilers="bf1\$(exeext)"
 
 target_libs="target-libbrainfuck"
 
-lang_requires="c"
+lang_requires_boot_languages=c++
 
-gtfiles="\$(srcdir)/brainfuck/brainfuck-lang.c"
+gtfiles="\$(srcdir)/brainfuck/brainfuck-lang.cc"

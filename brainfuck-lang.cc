@@ -125,7 +125,7 @@ static bool brainfuck_langhook_handle_option (size_t a ATTRIBUTE_UNUSED, const c
 static bool
 brainfuck_langhook_post_options (const char **pfilename ATTRIBUTE_UNUSED)
 {
-  flag_excess_precision_cmdline = EXCESS_PRECISION_FAST;
+  flag_excess_precision = EXCESS_PRECISION_FAST;
   return false;
 }
 
