@@ -29,7 +29,7 @@ $ make -j $(nproc)
 
 Install the files in `build/sysroot`
 ```
-$ make install DESTDIR=sysroot
+$ make install DESTDIR=$PWD/sysroot
 ```
 
 ## Compile a Brainfuck "Hello World" program
